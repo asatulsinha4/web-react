@@ -7,4 +7,7 @@ export const items = [
   {
     name: "Projects"
   },
+  {
+    name: "Personal Projects"
+  }
 ]
