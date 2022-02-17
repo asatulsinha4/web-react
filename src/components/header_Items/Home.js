@@ -3,6 +3,10 @@ import * as paths from '../globals/paths';
 
 export const items = [
   {
+    name: "Home",
+    path: ""
+  },
+  {
     name: "About",
     path: paths.ABOUT
   },
