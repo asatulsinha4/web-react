@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const ABOUT = "aabout";
+export const ABOUT = "about";
+export const PROJECTS = "projects";
+export const PERSONAL_PROJECTS = "personal_projects";

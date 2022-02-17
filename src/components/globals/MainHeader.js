@@ -5,6 +5,8 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { makeStyles } from "@mui/styles";
 import { items } from "../header_Items/Home";
+import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
     tabPanel: {
@@ -60,6 +62,39 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     })
 );
 
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`simple-tabpanel-${index}`}
+            aria-labelledby={`simple-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box sx={{ p: 3 }}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+}
+
+//   TabPanel.propTypes = {
+//     children: PropTypes.node,
+//     index: PropTypes.number.isRequired,
+//     value: PropTypes.number.isRequired,
+//   };
+
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
+    };
+}
+
 export default function CustomizedTabs() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -76,11 +111,20 @@ export default function CustomizedTabs() {
                     onChange={handleChange}
                     aria-label="styled tabs example"
                 >
-                    {items.map((props) => {
-                         return <StyledTab label={<p>{props.name}</p>} />
+                    {items.map((props, i) => {
+                        return (
+                            <StyledTab label={<p>{props.name}</p>} component={Link} to={props.path} value={i} {...a11yProps(i)} />
+                        );
                     })}
                 </StyledTabs>
             </Box>
+            {/* {items.map((props, i) => {
+                return (
+                    <TabPanel value={value} index={i}>
+                        {props.name}
+                    </TabPanel>
+                )
+            })} */}
         </div>
     );
 }

@@ -1,13 +1,17 @@
 import React from 'react';
+import * as paths from '../globals/paths';
 
 export const items = [
   {
-    name: "About"
+    name: "About",
+    path: paths.ABOUT
   },
   {
-    name: "Projects"
+    name: "Projects",
+    path: paths.PROJECTS
   },
   {
-    name: "Personal Projects"
+    name: "Personal Projects",
+    path: paths.PERSONAL_PROJECTS
   }
 ]
