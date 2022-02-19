@@ -20,11 +20,12 @@ const useStyles = makeStyles({
     nav: {
         backgroundColor: "#000000",
         height: "75px",
-        width: "100%",
+        maxWidth: '100%',
         display: "flex",
         justifyContent: "space-between",
         padding: "0.2rem calc((100vw - 1000px) / 2)",
-        zIndex: "12"
+        '-webkit-backdrop-filter': 'blur(10px)',
+        backdropFilter: 'blur(10px)',
     }
 });
 
