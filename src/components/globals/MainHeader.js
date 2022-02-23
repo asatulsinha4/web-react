@@ -99,12 +99,15 @@ function a11yProps(index) {
 export default function CustomizedTabs() {
     const classes = useStyles();
     const location = useLocation();
+    const value = location.pathname.substring(1).split("/")[0];
+    // console.log(value);
+
 
     return (
         <div>
             <Box className={classes.nav}>
                 <StyledTabs
-                    value={location.pathname.substring(1)}
+                    value={value}
                     aria-label="styled tabs example"
                 >
                     {items.map((props, i) => {

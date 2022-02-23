@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import {Routes as Switch, Route} from 'react-router-dom';
 import BackdropFilter from './Test/BackdropFilter';
 import { makeStyles } from '@mui/styles';
+import Page404 from './pages/page404';
 
 const useStyles = makeStyles({
   header: {
@@ -25,6 +26,7 @@ function App() {
       <Route path={paths.ABOUT} element={<About />} />
       <Route path="" element={<Home />} />
       <Route path={paths.PERSONAL_PROJECTS} element={<BackdropFilter />} />
+      <Route path='*' element={<Page404 />} />
     </Switch>
     </div>
   );
