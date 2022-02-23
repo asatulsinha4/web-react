@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { makeStyles } from "@mui/styles";
 import { items } from "../header_Items/Home";
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles({
     tabPanel: {
@@ -98,23 +98,18 @@ function a11yProps(index) {
 
 export default function CustomizedTabs() {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    const location = useLocation();
 
     return (
         <div>
             <Box className={classes.nav}>
                 <StyledTabs
-                    value={value}
-                    onChange={handleChange}
+                    value={location.pathname.substring(1)}
                     aria-label="styled tabs example"
                 >
                     {items.map((props, i) => {
                         return (
-                            <StyledTab label={<p>{props.name}</p>} component={Link} to={props.path} value={i} {...a11yProps(i)} />
+                            <StyledTab label={<p>{props.name}</p>} component={Link} to={props.path} value={props.path} {...a11yProps(i)} />
                         );
                     })}
                 </StyledTabs>
